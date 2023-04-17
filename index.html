@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Glantz Play/Pause Toggle Button</title>
+    <link rel="stylesheet" href="styles/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+  <section class="video-section">
+    <video controls class="player">
+        <source src="takealook.mp4" type="video/mp4" alt="a video of a small rodent singing Phantom fo the Opera">
+    </video>
+
+    <div class="controls">
+      <a href="#" title="Play video" class="play" onclick="togglePlay()"></a>
+    </div>
+
+  </section>
+
+  <section class="main-content">
+    <h1>This is an accesible play-pause button. It is an alternative to HTML's native video controls.</h1>
+
+    <h2>Why did you build that?</h2>
+    <p>Multimedia elements such as images, audio tracks, and videos aren't as easily understood by screenreaders or navigated by the keyboard as text, and we need to give them a helping hand. All elements on a site need to be given proper textual alternatives so they can be understood by assistive technologies and their users.</p>
+    
+    <h2>Doesn't HTML already have a &ltvideo&gt tag that includes controls?</h2>
+    <p>HTML5 video and audio instances even come with a set of inbuilt controls that allow you to control the media straight out of the box. </p>
+    <p>However, there are problems with these controls:</p>
+    <ul>
+      <li>
+        They are not keyboard-accessible in most browsers, i.e. you can't tab between the controls inside the native player. Chrome is actually pretty good, but Safari does not let you tab through controls.
+      </li>
+      <li>
+        Different browsers give the native controls differing styling and functionality, and they aren't stylable, meaning that they can't be easily made to follow a site style guide.
+      </li>
+
+    </ul>
+
+    <h2>How do you build an accesible one?</h2>
+
+    <details>
+      <summary><b>Step 1:</b> Create new, basic video control elements in your HTML.</summary>
+      <p>I added a &ltsection&gt element that includes a &ltvideo&gt element with my mp4 file, as well as a new &ltdiv&gt element that includes my new video controls.</p>
+      <img src="basic_html.png" alt="screenshot of html tags for the video on this page" class="screenshot" style="width: 500; height: 100;">
+    </details>
+
+    <details>
+      <summary><b>Step 2:</b> Use JavaScript to add functionality to the controls you created.</summary>
+      <p>In a script.js file, create a variable for your video player so that we can manipulate it. I also disabled the native controls of the video so that I can add my own funcitonality.</p>
+      <img src="disable_player.png" alt="screenshot of new video player variable" class="screenshot" style="width: 500; height: 100;">
+    </details>
+
+    <details>
+      <summary><b>Step 3:</b> Write a JS function to control the play/pause button</summary>
+      <p>Use conditional logic to toggle between play and pause buttons. </p>
+      <p>This function controls the player itself and also toggles a CSS class that styles the button with a play or pause icon.</p>
+      <img src="togglePlay.png" alt="screenshot of togglePLay function" class="screenshot" style="width: 500; height: 100;">
+    </details>
+
+    <details>
+      <summary><b>Step 4:</b>If appropriate, add other video controls such as rewind, fast-forward and stop.</summary>
+      <p>Check the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement">HTMLMediaElement</a> properties for other ways to access and code functionality into your video player.</p>
+      <p>For example, you can use player.currentTime to code rewind or fast-forward.</p>
+    </details>
+
+    <details>
+      <summary><b>Step 5:</b> Check your control for color-contrast and keyboard accessibility.</summary>
+      <p>Ensure that beyond including text alternatives, your controls are visible and easy to control with the keyboard.</p>
+    </details>
+
+    <details>
+      <summary><b>Step 6:</b> Consider other accessibility tools, such as video transcripts and closed captioning.</summary>
+      <p>You can provide an audio transcript of video content, or add closed captioning for dialogue, along with audio descriptions of what is happening in the video.</p>
+    </details>
+
+
+    <h2>Testing Accessibility Scores</h2>
+
+    <details>
+      <summary><b>Scores for this page</b></summary>
+      <img src="built-controls.png" alt="screenshot of lighthouse scores for this page" class="screenshot" style="width: 500; height: 100;">
+    </details>
+  
+    <details>
+      <summary><b>Scores for a page with same video but native HTML controls. </b><a href="/native-controls.html">Link to that page. </a></summary>
+      <img src="native-controls.png" alt="screenshot of lighthouse scores for native controls page" class="screenshot" style="width: 500; height: 100;">
+    </details>
+
+  </section>
+
+
+
+
+  <script src="script.js"></script>
+  </body>
+</html>
